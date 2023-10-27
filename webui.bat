@@ -1,3 +1,4 @@
+git pull
 @echo off
 
 if not defined PYTHON (set PYTHON=python)
@@ -21,10 +22,6 @@ if "%PIP_INSTALLER_LOCATION%" == "" goto :show_stdout_stderr
 if %ERRORLEVEL% == 0 goto :start_venv
 echo Couldn't install pip
 goto :show_stdout_stderr
-
-:start_venv
-if ["%VENV_DIR%"] == ["-"] goto :skip_venv
-if ["%SKIP_VENV%"] == ["1"] goto :skip_venv
 
 dir "%VENV_DIR%\Scripts\Python.exe" >tmp/stdout.txt 2>tmp/stderr.txt
 if %ERRORLEVEL% == 0 goto :activate_venv
